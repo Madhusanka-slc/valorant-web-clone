@@ -4,53 +4,19 @@
 
 *{
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
 }
+
 .clearfix{
     clear: both;
 }
+
 .clearfix::after{
-    display: block;
     content: "";
+    display: block;
     clear: both;
 }
 
-
-
-/*  Layout====================== */
-
-
-header .container{
-    background-color: yellow;
-    width: 100%;
-    height: 78px;  
-}
-
-header .container .col{
-    float: left;
-    height: 78px;  
-}
-header .container .col:first-child{
-    background-color: blueviolet;
-    width: calc(131px + 38px);
-   
-   
-}
-
-header .container .col:nth-child(2){
-    background-color: brown;
-    width: calc(100% - 188px - 131px - 38px);
-
-}
-header .container .col:last-child{
-    background-color: #111;
-    width: 188px;
-    text-align: right;
-    padding-right: 38px;
-    padding-top: 22px;
-
-}
+/* Layout */
 
 header{
     position: fixed;
@@ -59,55 +25,221 @@ header{
     top: 0;
 }
 
-/* header .container{
-    position: fixed;
-
-}              see the diff .... */
-
-
-header .container .col:last-child div{
-    display: inline-block;
-    /* background-color: blueviolet; */
+header{
+    height: 80px;
 }
 
+header > .col{
+    float: left;
+    height: 78px;
+}
+
+header > .col:first-child{
+    padding-right: 36px;
+    width: 210px;
+    background-color: #111;
+}
+
+header > .col:nth-child(2){
+    width: calc(100% - 210px - 195px);
+    background-color: #111;
+}
+
+header > .col:last-child{
+    width: 195px;
+    background-color: #111;
+    text-align: right;
+    padding-right: 38px;
+}
+
+header > .col:last-child > div{
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);    
+}
 
 #btn-playnow{
     padding: 8px 16px;
     border-radius: 12px;
     height: 32px;
     font-size: 13px;
-    size: 13px;
-    font-family: "FF Mark W05";
     font-weight: bold;
     cursor: pointer;
-    background:linear-gradient(135deg, rgb(255, 51, 66) 0%, rgb(255, 48, 64) 0.01%, rgb(255, 125, 102) 100%);
+    background: linear-gradient(135deg, rgb(255, 51, 66) 0%, rgb(255, 48, 64) 0.01%, rgb(255, 125, 102) 100%);
     transition: background 50ms;
-
-
+    line-height: 16px;
+    letter-spacing: .08em;
+    vertical-align: bottom;
 }
 
 #btn-playnow:hover{
-    background: rgb(255, 92, 70);
-   
+    background: rgb(255,70,85);
 }
 
 #ico-world{
     width: 32px;
     height: 32px;
-    margin-right: 6px;
+    margin-right: 1px;
     text-align: center;
     border-radius: 6.4px;
-    cursor: pointer;
+    cursor: pointer;  
+    line-height: 32px;
+    font-size: 1.2rem;    
 }
+
 #ico-world:hover{
-    background-color: rgba(128, 128, 128, 1);
+    background-color: rgba(128,128,128,0.2);
 }
 
-#ico-world ion-icon{
+#nav-main{
+    height: 100%;
+}
+
+
+#nav-main li{
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: .08em;
+    height: 100%;
+}
+#nav-main>li a{
+    border-radius: 6.4px;
+    line-height: 15.6px;
+    text-decoration: none;
     color: white;
-    font-size: 1.2rem;
-    vertical-align: middle; /* for the element */
-    padding-top: 5px;
+
+}
+#nav-main>li>a{
+    display: block;
+    padding: 7.5px 16px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#nav-main>li:not(.submenu):hover a::after{
+    display: block;
+}
+
+#nav-main>li:not(.submenu) a::after{
+    display: none;
+    content: "";
+    position: absolute;
+    background-color: red;
+    width: 100%;
+    left: 0;
+    top: 40px;
+    height: 4px;
+    background-color: rgb(255, 70, 85);
+    border-radius: 2px 2px 0px 0px;
+}
+
+#nav-main li:hover>a{
+    background-color: rgba(128,128,128,0.3);
+}
+
+#nav-main > li{
+    float: left;
+    margin-right: 4px;
+}
+
+#nav-main .submenu > nav{
+    display: none;
+}
+
+#nav-main .submenu:hover svg path{
+    fill: white;
+}
+#nav-main .submenu{
+    position: relative;
+}
+#nav-main>li.submenu a{
+    display: block;
+    padding: 16px 8px;
+}
+
+#nav-main>li.submenu li{
+    padding: 5px 16px;
 }
 
 
+
+#nav-main>li.submenu li:first-child{
+    padding-top: 16px;
+}
+#nav-main>li.submenu li:last-child{
+    padding-bottom: 16px;
+}
+
+
+#nav-main .submenu nav{
+    position: absolute;
+    width: 205px;
+    background-color: #292929;
+    top: 75px;
+}
+
+#nav-main .submenu:hover nav{
+    display: block;
+}
+
+#nav-main .submenu nav::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 4px;
+    background-color: rgb(255, 70, 85);
+    border-radius: 2px 2px 0px 0px;
+}
+
+#riot-games{
+    float: left;
+    background-color: #111;
+    float: left;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+}
+
+
+#riot-games svg:first-child{
+    fill: white;
+}
+
+#riot-games svg:hover{
+    fill: red;
+    
+}
+
+#riot-games svg:last-child{
+    fill: #7e7e7e;
+    vertical-align: super;
+    line-height: 27px;
+
+
+}
+
+#logo{
+    height: 100%;
+    padding-left: 22px;
+    float: left;
+    background-color: #111;
+  
+}
+
+#logo a{
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#logo svg{
+    height: 26px;
+}
